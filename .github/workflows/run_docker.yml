@@ -12,6 +12,9 @@ jobs:
         name: Dump
         run:
           echo  '${{ toJSON(github.event.client_payload) }}'
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -26,4 +29,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: blaufuss/test-image-${{ github.event.client_payload.tag }}:latest
+          tags: blaufuss/test-image-${{ github.event.client_payload.tag }}:latest, \
+                blaufuss/test-image-${{ github.event.client_payload.tag }}:${{ steps.date.outputs.date }}
