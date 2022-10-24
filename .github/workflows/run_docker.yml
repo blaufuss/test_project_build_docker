@@ -1,11 +1,7 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - 'main'
-
-  workflow_dispatch:
+  # we only expect to run when trigger externals with a tag
   repository_dispatch:
 
 jobs:
