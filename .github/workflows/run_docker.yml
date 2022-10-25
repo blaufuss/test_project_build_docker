@@ -29,4 +29,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: blaufuss/test-image:${{ github.event.client_payload.tag }}-${{ steps.date.outputs.date }}, blaufuss/test-image:${{ github.event.client_payload.tag }}-latest
+          tags: >
+            blaufuss/test-image:${{ github.event.client_payload.tag }}-${{ steps.date.outputs.date }}, 
+            blaufuss/test-image:${{ github.event.client_payload.tag }}-latest
