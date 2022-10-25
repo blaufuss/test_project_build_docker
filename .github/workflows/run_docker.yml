@@ -31,4 +31,5 @@ jobs:
           push: true
           tags: >
             blaufuss/test-image:${{ github.event.client_payload.tag }}-${{ steps.date.outputs.date }}, 
-            blaufuss/test-image:${{ github.event.client_payload.tag }}-latest
+            blaufuss/test-image:${{ github.event.client_payload.tag }}-latest,
+            blaufuss/test-image:latest
